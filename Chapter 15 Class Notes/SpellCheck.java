@@ -3,6 +3,7 @@ import java.util.Scanner;
 import java.util.Set;
 import java.io.File;
 import java.io.FileNotFoundException;
+import java.util.Iterator;
 
 /**
    This program checks which words in a file are not present in a dictionary.
@@ -13,18 +14,28 @@ public class SpellCheck
       throws FileNotFoundException
    {
       // Read the dictionary and the document
-
+      Set<String> dictionaryWords= readWords("words");
+      Set<String> documentWords= readWords("alice30.txt");
 
 
       // Print all words that are in the document but not the dictionary
 
       for (String word : documentWords)
       {
-         if ()
+         if (!dictionaryWords.contains(word))
          {
             System.out.println(word);
          }
       }
+      System.out.println("Unique Words: "+documentWords.size());
+      Iterator<String> i= documentWords.iterator();
+      while(i.hasNext())
+      {
+          if(i.next().length()<4)
+          {
+              i.remove();
+        }
+    }
    }
 
    /**
@@ -36,11 +47,17 @@ public class SpellCheck
    public static Set<String> readWords(String filename)
       throws FileNotFoundException
    {
-
-
-
-
+      Set<String> words= new HashSet<>();
+      Scanner in= new Scanner(new File(filename));
+      in.useDelimiter("[^a-zA-Z]+");
+      while(in.hasNext())
+      {
+        words.add(in.next().toLowerCase());
+        
+          
+        }
+        return words;
+    }
 
 
    }
-}
