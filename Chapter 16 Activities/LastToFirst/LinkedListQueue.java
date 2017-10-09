@@ -24,12 +24,20 @@ public class LinkedListQueue
    */
    public void lastToFirst()
    {
-      . . .
-
-
-
-
-
+       Node tmp1 = head;
+       Node tmp2 = null;
+       while(tmp1.next != null){
+           tmp2 = tmp1;
+           tmp1 = tmp1.next;
+        }
+        if(tmp2 == null){
+            // Only 1 element, so do nothing
+            return;
+        }
+       Node hold= head;
+       head= tail;
+       head.next = hold;
+       tmp2.next = null;
    }
 
    /**

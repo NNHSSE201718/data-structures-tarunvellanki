@@ -1,6 +1,6 @@
 package Reverse;
 
-import java.util.NoSuchElementException;
+import java.util.*;
 /**
 A linked list is a sequence of nodes with efficient
 element insertion and removal. This class
@@ -27,8 +27,24 @@ public class LinkedList
      */
     public void reverse()
     {
-        // Compile this method
-        
+        Stack<Node> hold= new Stack<>();
+        Node current= first;
+        while(current != null)
+        {
+            hold.push(current);
+            current= current.next;
+            
+        }
+        current=hold.pop();
+        first= current;
+        while(hold.size()!=0)
+        {
+            current.next=hold.pop();
+            current= current.next;
+            
+            
+        }
+        current.next=null;
 
     }
     /**
