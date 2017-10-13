@@ -11,6 +11,7 @@ public class Square
     private int row;
     private int col;
     private int type;//1=space, 2=wall, 3=start, 4=exit
+    private int explored;
 
     /**
      * Constructor for objects of class Square
@@ -20,6 +21,7 @@ public class Square
         this.row= row;
         this.col= col;
         this.type= type;
+        this.explored=1;
     }
 
     /**
@@ -44,6 +46,18 @@ public class Square
     {
         if(type==0)
         {
+            if(explored==1)
+            {
+                return "o";
+            }
+            if(explored==2)
+            {
+                return".";
+            }
+            if(explored==3)
+            {
+                return "x";
+            }
             return " ";
         }
         if(type==1)
@@ -58,5 +72,9 @@ public class Square
         {
             return "E";
         }
+    }
+    public void reset()
+    {
+        explored=1;
     }
 }
