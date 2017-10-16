@@ -43,6 +43,7 @@ public class Maze
             return false;
         }
     }
+
     public ArrayList<Square> getNeighbors(Square sq)
     {
         int row= sq.getRow();
@@ -66,6 +67,7 @@ public class Maze
         }
         return neigh;
     }
+
     public Square getStart()
     {
         Square squa= new Square(0,0,0);
@@ -81,6 +83,7 @@ public class Maze
         }
         return squa;
     }
+
     public Square getFinish()
     {
         Square squa= new Square(0,0,0);
@@ -95,5 +98,31 @@ public class Maze
             }
         }
         return squa;
+    }
+
+    public void reset()
+    {
+        for(int x=0; x<maze.length;x++)
+        {
+            for (int y=0; y<maze[x].length;y++)
+            {
+                maze[x][y].reset();
+            }
+        }
+
+    }
+
+    public String toString()
+    {
+        StringBuilder sb = new StringBuilder();
+        for( int x=0; x < maze.length; x++ ) {
+            for (int y=0; y<maze[x].length;y++)
+            {
+
+                sb.append(maze[x][y]+" ");
+            }
+        }
+        String s = new String(sb);
+        return s;
     }
 }
