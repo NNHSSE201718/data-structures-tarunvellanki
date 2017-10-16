@@ -18,6 +18,7 @@ public class MazeTest
      */
     public MazeTest()
     {
+        Maze test= new Maze();
         
     }
 }
