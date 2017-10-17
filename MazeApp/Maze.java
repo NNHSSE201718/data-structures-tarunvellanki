@@ -32,7 +32,7 @@ public class Maze
 
             for (int row=0; row < numRows; row++) {
                 for (int col=0; col < numCols; col++) {
-                    maze[row][col] = null;
+                    maze[row][col] = new Square(l.nextInt(), row, col);
                 }
             }
             return true;
@@ -115,14 +115,16 @@ public class Maze
     public String toString()
     {
         StringBuilder sb = new StringBuilder();
-        for( int x=0; x < maze.length; x++ ) {
+        for( int x=0; x < maze.length; x++ )
+        {
             for (int y=0; y<maze[x].length;y++)
             {
-
-                sb.append(maze[x][y]+" ");
+                sb.append(maze[x][y].toString()+" ");
             }
+            sb.append("\n");
         }
         String s = new String(sb);
+        System.out.println(s);
         return s;
     }
 }

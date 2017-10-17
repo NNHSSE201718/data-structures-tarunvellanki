@@ -16,12 +16,12 @@ public class Square
     /**
      * Constructor for objects of class Square
      */
-    public Square(int row, int col, int type)
+    public Square(int type, int row, int col)
     {
         this.row= row;
         this.col= col;
         this.type= type;
-        this.explored=1;
+        this.explored=0;
     }
 
     /**
@@ -58,7 +58,11 @@ public class Square
             {
                 return "x";
             }
-            return " ";
+            else
+            {
+                return "_";
+            }
+            
         }
         if(type==1)
         {
@@ -70,7 +74,7 @@ public class Square
         }
         else
         {
-            return "E";
+            return "F";
         }
     }
     public void reset()
