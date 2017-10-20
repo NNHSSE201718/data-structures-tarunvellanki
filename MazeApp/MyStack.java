@@ -28,16 +28,47 @@ public class MyStack<T> implements StackADT<T>
     {
         storage.add(t);
     }
-    public T pop()
+
+    public T pop() throws NoSuchElementException
     {
         if(storage.size()>0)
         {
-            
-        storage.remove(0);
+
+            return (T)(storage.remove(storage.size()-1));
+        }
+        else
+        {
+            throw new NoSuchElementException();
+        }
     }
-    else
+    public T top() throws NoSuchElementException
     {
-        return new NoSuchElementException();
+        if(storage.size()>0)
+        {
+            return (T)(storage.get(0));
+        }
+        else
+        {
+            throw new NoSuchElementException();
+        }
     }
+    public void clear()
+    {
+        storage.clear();
+    }
+    public boolean isEmpty()
+    {
+        if(storage.size()>0)
+        {
+            return true;
+        }
+        else
+        {
+            return false;
+        }
+    }
+    public int size()
+    {
+        return storage.size();
     }
 }
