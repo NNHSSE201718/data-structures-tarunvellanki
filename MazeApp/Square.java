@@ -10,7 +10,7 @@ public class Square
     // instance variables - replace the example below with your own
     private int row;
     private int col;
-    private int type;//1=space, 2=wall, 3=start, 4=exit
+    private int type;//0=space, 1=wall, 2=start, 3=exit
     private int explored;
 
     /**
@@ -77,8 +77,16 @@ public class Square
             return "F";
         }
     }
+    public void onWorkList()
+    {
+        explored=2;
+    }
     public void reset()
     {
         explored=1;
+    }
+    public void explored()
+    {
+        explored=3;
     }
 }

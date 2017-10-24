@@ -8,7 +8,7 @@ import java.util.*;
 public abstract class MazeSolver
 {
     // instance variables - replace the example below with your own
-    private Maze maze;
+    Maze maze;
 
     /**
      * Constructor for objects of class MazeSolver
@@ -49,15 +49,31 @@ public abstract class MazeSolver
     }
     public String getPath()
     {
-        if(!this.isSolved())
+        String path="";
+        if(this.isEmpty())
         {
-            return "Maze is not solved";
+            return "No such path exists";
+        }
+        else{
+            while(!this.isSolved())
+            {
+                path+= this.step().getRow()+","+ this.step().getCol();
+            }
+            return path;
+        }
+    }
+    public Square step()
+    {
+        if(this.isEmpty())
+        {
+            return null;
         }
         else
         {
             if(this.next()== maze.getFinish())
             {
-                return this.next().toString();
+                this.next().explored();
+                
             }
             else
             {
@@ -66,26 +82,18 @@ public abstract class MazeSolver
                 {
                     if(array.get(count).toString().equals("_"))
                     {
-                        ;
+                        this.add(array.get(count));
+                        array.get(count).onWorkList();
                     }
                 }
             }
         }
-    }
-    public Square step()
-    {
-        if(this.isEmpty())
-        {
-            
-        }
-        else
-        {
-            
-        }
+        return this.next();
+
     }
     public void solve()
     {
-        if(!this.isSolved())
+        while(!this.isSolved())
         {
             this.step();
         }

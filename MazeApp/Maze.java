@@ -70,34 +70,40 @@ public class Maze
 
     public Square getStart()
     {
-        Square squa= new Square(0,0,0);
-        for(Square[] x:maze)
+        for(int x=0; x<maze.length;x++)
         {
-            for(Square y:x)
+            for(int y=0;y<maze[0].length;y++)
             {
-                if(y.getType()==2)
+                if(maze[x][y].getType()==3)
                 {
-                    squa=y;
+                    return maze[x][y];
+                }
+                else
+                {
+                    return null;
                 }
             }
         }
-        return squa;
+        return null;
     }
 
     public Square getFinish()
     {
-        Square squa= new Square(0,0,0);
-        for(Square[] x:maze)
+        for(int x=0; x<maze.length;x++)
         {
-            for(Square y:x)
+            for(int y=0;y<maze[0].length;y++)
             {
-                if(y.getType()==3)
+                if(maze[x][y].getType()==4)
                 {
-                    squa=y;
+                    return maze[x][y];
+                }
+                else
+                {
+                    return null;
                 }
             }
         }
-        return squa;
+        return null;
     }
 
     public void reset()
