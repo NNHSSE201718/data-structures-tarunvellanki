@@ -74,7 +74,7 @@ public class Maze
         {
             for(int y=0;y<maze[0].length;y++)
             {
-                if(maze[x][y].getType()==3)
+                if(maze[x][y].getType()==2)
                 {
                     return maze[x][y];
                 }
@@ -93,7 +93,7 @@ public class Maze
         {
             for(int y=0;y<maze[0].length;y++)
             {
-                if(maze[x][y].getType()==4)
+                if(maze[x][y].getType()==3)
                 {
                     return maze[x][y];
                 }
