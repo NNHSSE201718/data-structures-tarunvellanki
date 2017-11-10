@@ -79,13 +79,17 @@ public class Square
     }
     public void onWorkList()
     {
-        explored=2;
+        explored=1;
     }
     public void reset()
     {
-        explored=1;
+        explored=0;
     }
     public void explored()
+    {
+        explored=2;
+    }
+    public void finalPath()
     {
         explored=3;
     }

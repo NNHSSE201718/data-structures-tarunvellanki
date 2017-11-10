@@ -25,13 +25,18 @@ public abstract class MazeSolver
      * @return    the sum of x and y
      */
     abstract void makeEmpty();
+
     abstract boolean isEmpty();
+
     abstract void add(Square sq);
+
     abstract Square next();
+
     public MazeSolver(Maze z)
     {
         maze= z;
     }
+
     public boolean isSolved()
     {
         if(this.isEmpty())
@@ -47,6 +52,7 @@ public abstract class MazeSolver
             return false;
         }
     }
+
     public String getPath()
     {
         String path="";
@@ -62,6 +68,7 @@ public abstract class MazeSolver
             return path;
         }
     }
+
     public Square step()
     {
         if(this.isEmpty())
@@ -72,8 +79,8 @@ public abstract class MazeSolver
         {
             if(this.next()== maze.getFinish())
             {
-                this.next().explored();
-                
+                this.next().finalPath();
+
             }
             else
             {
@@ -91,6 +98,7 @@ public abstract class MazeSolver
         return this.next();
 
     }
+
     public void solve()
     {
         while(!this.isSolved())

@@ -35,8 +35,14 @@ public class BinaryTree
    {
       root = new Node();
       root.data = rootData;
+      if(left!=null)
+      {
       root.left = left.root;
+    }
+    if(right!=null)
+    {
       root.right = right.root;
+    }
    }
 
    class Node
@@ -96,4 +102,26 @@ public class BinaryTree
       result.root = root.right;
       return result;
    }
+   
+   private static int countNodesWithOneChild(Node n)
+   {
+       int count=0;
+       if(n==null)
+      {
+          return 0;
+        }
+        else
+        {
+            if(Math.max(BinaryTree.height(n.left), BinaryTree.height(n.right))==1)
+            {
+                count++;
+            }
+            
+        }
+        return count;
+    }
+    public int countNodesWithOneChild()
+    {
+        return BinaryTree.countNodesWithOneChild(this.root);
+    }
 }

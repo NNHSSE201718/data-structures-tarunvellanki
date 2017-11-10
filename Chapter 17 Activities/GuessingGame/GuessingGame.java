@@ -72,7 +72,13 @@ public class GuessingGame
       }
 
       String message = "Great, " + current.data();
-      System.out.println(message.replace("Is it", "it is")
-         .replace("?", "."));
+      if(in.next()!= "y")
+      {
+          System.out.println("I give up what is it?");
+          System.out.println("Please give me a question that is true for a "+ in.next()+ " and false for a the last animal questioned?");
+          questionTree.replace(current.right(),null, new BinaryTree(in.next()));
+        }
+      // System.out.println(message.replace("Is it", "it is")
+         // .replace("?", "."));
    }
 }
