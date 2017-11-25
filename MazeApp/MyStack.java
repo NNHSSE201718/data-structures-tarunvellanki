@@ -45,7 +45,7 @@ public class MyStack<T> implements StackADT<T>
     {
         if(storage.size()>0)
         {
-            return (T)(storage.get(0));
+            return (T)(storage.get(storage.size()-1));
         }
         else
         {

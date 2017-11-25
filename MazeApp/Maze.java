@@ -42,6 +42,7 @@ public class Maze
             System.out.println("File not found");
             return false;
         }
+        
     }
 
     public ArrayList<Square> getNeighbors(Square sq)

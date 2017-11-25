@@ -8,7 +8,7 @@ import java.util.*;
 public class MyQueue<T> implements QueueADT<T>
 {
     // instance variables - replace the example below with your own
-    private LinkedList data;
+    private LinkedList data; 
 
     /**
      * Constructor for objects of class Queue
