@@ -10,8 +10,9 @@ public class Square
     // instance variables - replace the example below with your own
     private int row;
     private int col;
-    private int type;//0=space, 1=wall, 2=start, 3=exit
+    private int type;//0=space, 1=wall, 2=start, 3=exit 
     private int explored;
+    private Square previous;
 
     /**
      * Constructor for objects of class Square

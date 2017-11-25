@@ -61,7 +61,7 @@ public abstract class MazeSolver
             return "No such path exists";
         }
         else{
-            while(!this.isSolved())
+            while(!this.isSolved()) 
             {
                 path+= this.step().getRow()+","+ this.step().getCol();
             }
@@ -94,6 +94,7 @@ public abstract class MazeSolver
                     }
                 }
             }
+            
         }
         return this.next();
 

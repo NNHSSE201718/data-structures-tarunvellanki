@@ -41,10 +41,12 @@ public class MazeTest
     {
     }
     
+    @Test
     public void loadMazeTest()
     {
         Maze mz= new Maze();
         boolean var= mz.loadMaze("maze-1");
         assertEquals(true, var);
     }
+    
 }
