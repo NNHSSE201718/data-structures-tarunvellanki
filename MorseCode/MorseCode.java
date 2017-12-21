@@ -13,6 +13,7 @@ public class MorseCode
         codeMap = new TreeMap<Character, String>();
         decodeTree = new TreeNode(' ', null, null);  // a of the decoding tree
 
+        addSymbol('A', ".-");
         addSymbol('B', "-...");
         addSymbol('C', "-.-.");
         addSymbol('D', "-..");
@@ -74,14 +75,14 @@ public class MorseCode
     {
         TreeNode node = decodeTree;
         for(int i = 0; i < code.length(); i++) {
-            if(code.substring(i,i+1).compareTo("-") == 0) {
+            if(code.substring(i,i+1).compareTo("-") == 0) { 
                 if(node.getLeft() != null) {
                     node = node.getLeft();
                 } else {
                     node.setLeft(new TreeNode(" "));
                     node = node.getLeft();
                 }
-            } else {
+            } else if(code.substring(i,i+1).compareTo(".") == 0) {
                 if(node.getRight() != null) {
                     node = node.getRight();
                 } else {
@@ -132,7 +133,7 @@ public class MorseCode
             for(int i = 0; i < input.length(); i++) {
                 if(input.substring(i,i+1).compareTo("-") == 0) {
                     n = n.getLeft();
-                } else {
+                } else if(input.substring(i,i+1).compareTo(".") == 0) {
                     n = n.getRight();
                 }
             }
